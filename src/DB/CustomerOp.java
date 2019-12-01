@@ -22,142 +22,142 @@ public class CustomerOp {
 
     Connection conn = null;
     Statement stmt = null;
-
-    public void purchaseMedForAllergy(String brandname, String genericname, int quantity) {
-//        Connection conn = null;
-//        Statement stmt = null;
-        String deleteQuery;
-        String updateQuery;
-        String selectQuery;
-        selectQuery = "SELECT quantity from `medicine_for_allergy` WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "' ";
-        deleteQuery = "DELETE FROM `medicine_for_allergy` WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "' ";
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/but-anon", "root", "");
-            stmt = conn.createStatement();
-            ResultSet select = stmt.executeQuery(selectQuery);
-            while (select.next()) {
-                int qty = select.getInt("quantity");
-                if (qty == quantity) {
-                    stmt.executeUpdate(deleteQuery);
-                    JOptionPane.showMessageDialog(null, "You purchased all " + genericname);
-                } else if (qty > quantity) {
-                    int upqty = qty - quantity;
-                    updateQuery = "UPDATE `medicine_for_allergy` SET quantity = '" + upqty + "' WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "'";
-                    stmt.executeUpdate(updateQuery);
-                    JOptionPane.showMessageDialog(null, "You purchased " + quantity + " of " + genericname);
-                }
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-            System.out.println(ex.getMessage());
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CustomerOp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
-    public void purchaseMedForBodyPain(String brandname, String genericname, int quantity) {
-//        Connection conn = null;
-//        Statement stmt = null;
-        String deleteQuery;
-        String updateQuery;
-        String selectQuery;
-        selectQuery = "SELECT quantity from `medicine_for_body_pain` WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "' ";
-        deleteQuery = "DELETE FROM `medicine_for_body_pain` WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "' ";
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/but-anon", "root", "");
-            stmt = conn.createStatement();
-            ResultSet select = stmt.executeQuery(selectQuery);
-            while (select.next()) {
-                int qty = select.getInt("quantity");
-                if (qty == quantity) {
-                    stmt.executeUpdate(deleteQuery);
-                    JOptionPane.showMessageDialog(null, "You purchased all " + genericname);
-                } else if (qty > quantity) {
-                    int upqty = qty - quantity;
-                    updateQuery = "UPDATE `medicine_for_body_pain` SET quantity = '" + upqty + "' WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "'";
-                    stmt.executeUpdate(updateQuery);
-                    JOptionPane.showMessageDialog(null, "You purchased " + quantity + " of " + genericname);
-                }
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-            System.out.println(ex.getMessage());
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CustomerOp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
-    public void purchaseMedForCough(String brandname, String genericname, int quantity) {
-//        Connection conn = null;
-//        Statement stmt = null;
-        String deleteQuery;
-        String updateQuery;
-        String selectQuery;
-        selectQuery = "SELECT quantity from `medicine_for_cough` WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "' ";
-        deleteQuery = "DELETE FROM `medicine_for_cough` WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "' ";
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/but-anon", "root", "");
-            stmt = conn.createStatement();
-            ResultSet select = stmt.executeQuery(selectQuery);
-            while (select.next()) {
-                int qty = select.getInt("quantity");
-                if (qty == quantity) {
-                    stmt.executeUpdate(deleteQuery);
-                    JOptionPane.showMessageDialog(null, "You purchased all " + genericname);
-                } else if (qty > quantity) {
-                    int upqty = qty - quantity;
-                    updateQuery = "UPDATE `medicine_for_cough` SET quantity = '" + upqty + "' WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "'";
-                    stmt.executeUpdate(updateQuery);
-                    JOptionPane.showMessageDialog(null, "You purchased " + quantity + " of " + genericname);
-                }
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-            System.out.println(ex.getMessage());
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CustomerOp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
-    public void purchaseMedForHeadache(String brandname, String genericname, int quantity) {
-//        Connection conn = null;
-//        Statement stmt = null;
-        String deleteQuery;
-        String updateQuery;
-        String selectQuery;
-        selectQuery = "SELECT quantity from `medicine_for_headache` WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "' ";
-        deleteQuery = "DELETE FROM `medicine_for_headache` WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "' ";
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/but-anon", "root", "");
-            stmt = conn.createStatement();
-            ResultSet select = stmt.executeQuery(selectQuery);
-            while (select.next()) {
-                int qty = select.getInt("quantity");
-                if (qty == quantity) {
-                    stmt.executeUpdate(deleteQuery);
-                    JOptionPane.showMessageDialog(null, "You purchased all " + genericname);
-                } else if (qty > quantity) {
-                    int upqty = qty - quantity;
-                    updateQuery = "UPDATE `medicine_for_headache` SET quantity = '" + upqty + "' WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "'";
-                    stmt.executeUpdate(updateQuery);
-                    JOptionPane.showMessageDialog(null, "You purchased " + quantity + " of " + genericname);
-                }
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-            System.out.println(ex.getMessage());
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CustomerOp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
+//
+//    public void purchaseMedForAllergy(String brandname, String genericname, int quantity) {
+////        Connection conn = null;
+////        Statement stmt = null;
+//        String deleteQuery;
+//        String updateQuery;
+//        String selectQuery;
+//        selectQuery = "SELECT quantity from `medicine_for_allergy` WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "' ";
+//        deleteQuery = "DELETE FROM `medicine_for_allergy` WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "' ";
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//            conn = DriverManager.getConnection("jdbc:mysql://localhost/but-anon", "root", "");
+//            stmt = conn.createStatement();
+//            ResultSet select = stmt.executeQuery(selectQuery);
+//            while (select.next()) {
+//                int qty = select.getInt("quantity");
+//                if (qty == quantity) {
+//                    stmt.executeUpdate(deleteQuery);
+//                    JOptionPane.showMessageDialog(null, "You purchased all " + genericname);
+//                } else if (qty > quantity) {
+//                    int upqty = qty - quantity;
+//                    updateQuery = "UPDATE `medicine_for_allergy` SET quantity = '" + upqty + "' WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "'";
+//                    stmt.executeUpdate(updateQuery);
+//                    JOptionPane.showMessageDialog(null, "You purchased " + quantity + " of " + genericname);
+//                }
+//            }
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, ex);
+//            System.out.println(ex.getMessage());
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(CustomerOp.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//    }
+//
+//    public void purchaseMedForBodyPain(String brandname, String genericname, int quantity) {
+////        Connection conn = null;
+////        Statement stmt = null;
+//        String deleteQuery;
+//        String updateQuery;
+//        String selectQuery;
+//        selectQuery = "SELECT quantity from `medicine_for_body_pain` WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "' ";
+//        deleteQuery = "DELETE FROM `medicine_for_body_pain` WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "' ";
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//            conn = DriverManager.getConnection("jdbc:mysql://localhost/but-anon", "root", "");
+//            stmt = conn.createStatement();
+//            ResultSet select = stmt.executeQuery(selectQuery);
+//            while (select.next()) {
+//                int qty = select.getInt("quantity");
+//                if (qty == quantity) {
+//                    stmt.executeUpdate(deleteQuery);
+//                    JOptionPane.showMessageDialog(null, "You purchased all " + genericname);
+//                } else if (qty > quantity) {
+//                    int upqty = qty - quantity;
+//                    updateQuery = "UPDATE `medicine_for_body_pain` SET quantity = '" + upqty + "' WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "'";
+//                    stmt.executeUpdate(updateQuery);
+//                    JOptionPane.showMessageDialog(null, "You purchased " + quantity + " of " + genericname);
+//                }
+//            }
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, ex);
+//            System.out.println(ex.getMessage());
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(CustomerOp.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//    }
+//
+//    public void purchaseMedForCough(String brandname, String genericname, int quantity) {
+////        Connection conn = null;
+////        Statement stmt = null;
+//        String deleteQuery;
+//        String updateQuery;
+//        String selectQuery;
+//        selectQuery = "SELECT quantity from `medicine_for_cough` WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "' ";
+//        deleteQuery = "DELETE FROM `medicine_for_cough` WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "' ";
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//            conn = DriverManager.getConnection("jdbc:mysql://localhost/but-anon", "root", "");
+//            stmt = conn.createStatement();
+//            ResultSet select = stmt.executeQuery(selectQuery);
+//            while (select.next()) {
+//                int qty = select.getInt("quantity");
+//                if (qty == quantity) {
+//                    stmt.executeUpdate(deleteQuery);
+//                    JOptionPane.showMessageDialog(null, "You purchased all " + genericname);
+//                } else if (qty > quantity) {
+//                    int upqty = qty - quantity;
+//                    updateQuery = "UPDATE `medicine_for_cough` SET quantity = '" + upqty + "' WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "'";
+//                    stmt.executeUpdate(updateQuery);
+//                    JOptionPane.showMessageDialog(null, "You purchased " + quantity + " of " + genericname);
+//                }
+//            }
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, ex);
+//            System.out.println(ex.getMessage());
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(CustomerOp.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//    }
+//
+//    public void purchaseMedForHeadache(String brandname, String genericname, int quantity) {
+////        Connection conn = null;
+////        Statement stmt = null;
+//        String deleteQuery;
+//        String updateQuery;
+//        String selectQuery;
+//        selectQuery = "SELECT quantity from `medicine_for_headache` WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "' ";
+//        deleteQuery = "DELETE FROM `medicine_for_headache` WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "' ";
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//            conn = DriverManager.getConnection("jdbc:mysql://localhost/but-anon", "root", "");
+//            stmt = conn.createStatement();
+//            ResultSet select = stmt.executeQuery(selectQuery);
+//            while (select.next()) {
+//                int qty = select.getInt("quantity");
+//                if (qty == quantity) {
+//                    stmt.executeUpdate(deleteQuery);
+//                    JOptionPane.showMessageDialog(null, "You purchased all " + genericname);
+//                } else if (qty > quantity) {
+//                    int upqty = qty - quantity;
+//                    updateQuery = "UPDATE `medicine_for_headache` SET quantity = '" + upqty + "' WHERE brandname = '" + brandname + "' and genericname = '" + genericname + "'";
+//                    stmt.executeUpdate(updateQuery);
+//                    JOptionPane.showMessageDialog(null, "You purchased " + quantity + " of " + genericname);
+//                }
+//            }
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, ex);
+//            System.out.println(ex.getMessage());
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(CustomerOp.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//    }
 
     public Object[][] viewMedicineForAllergy() {
 //        Connection conn = null;

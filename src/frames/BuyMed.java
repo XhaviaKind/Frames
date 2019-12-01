@@ -42,7 +42,7 @@ public class BuyMed extends javax.swing.JFrame {
     String descValue;
     String medFor;
     int qtyUpdate;
-
+    boolean chicken = false;
     /**
      * Creates new form BuyMed
      */
@@ -452,6 +452,7 @@ public class BuyMed extends javax.swing.JFrame {
             System.out.println(ex.getMessage());
         }
     }
+    
     private void purchaseBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_purchaseBtnMouseClicked
         // TODO add your handling code here:
         if (availableQtyValue > (Integer.parseInt(inputQty.getText()))) { // if quantity available is lesser than the user quantity input
@@ -467,8 +468,10 @@ public class BuyMed extends javax.swing.JFrame {
 
             if (qtyUpdate > 0 || Integer.parseInt(inputQty.getText()) < availableQtyValue) {
                 stmt.executeUpdate(query);
-                JOptionPane.showMessageDialog(rootPane, "Successfully purchased!n");
-                updateData();
+                JOptionPane.showMessageDialog(rootPane, "Successfully purchased!");
+                if(chicken == true) {
+                    updateData();
+                }
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Not Enough supply", "Error", JOptionPane.ERROR_MESSAGE);
             }

@@ -14,7 +14,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,8 +22,10 @@ import javax.swing.table.DefaultTableModel;
  * @author 2ndyrGroupB
  */
 public class MyPurchasesHistory extends javax.swing.JFrame {
+
     DefaultTableModel tm;
     double totalAmount = 0;
+
     /**
      * Creates new form MyPurchasesHistory
      */
@@ -33,7 +34,27 @@ public class MyPurchasesHistory extends javax.swing.JFrame {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
     }
-    
+
+//    public void updateData() {
+//        int row = purchasehistoryTable.getRowCount();
+//        int col = purchasehistoryTable.getColumnCount();
+//        try {
+//            Connection conn = new CRUD().connectToDB();
+//            for (int i = 0; i < row; i++) {
+//                String updateMed = "UPDATE medicine SET Quantity=" + (purchasehistoryTable.getValueAt(i, 3))
+//                        + " WHERE GenericName= " + "\"" + (purchasehistoryTable.getValueAt(i, 1)) + "\"" + ";";
+//                Statement statement = conn.createStatement();
+//                statement.executeUpdate(updateMed);
+//                JOptionPane.showMessageDialog(rootPane, (purchasehistoryTable.getValueAt(i, 3)));
+//            }
+//
+//            conn.close();
+////            JOptionPane.showMessageDialog(rootPane, qtyUpdate);
+//        } catch (SQLException ex) {
+//            System.out.println(ex.getMessage());
+//        }
+//    }
+
     public void viewOrders() {
         String accountQuery = "SELECT * FROM purchase_history";
         try {
@@ -43,11 +64,12 @@ public class MyPurchasesHistory extends javax.swing.JFrame {
             Statement statement = connection.createStatement();
             ResultSet rsAcc = statement.executeQuery(accountQuery);
             while (rsAcc.next()) {
-                tm.addRow(new Object[]{rsAcc.getString(2), rsAcc.getString(3), rsAcc.getString(4), rsAcc.getString(5),rsAcc.getString(6),rsAcc.getString(7)});
+                tm.addRow(new Object[]{rsAcc.getString(2), rsAcc.getString(3), rsAcc.getString(4), rsAcc.getString(5), rsAcc.getString(6), rsAcc.getString(7)});
                 totalAmount += rsAcc.getDouble("Price");
             }
-            
-            totalAmountToPay.setText("Php "+String.valueOf(totalAmount));
+
+            totalAmountToPay.setText("Php " + String.valueOf(totalAmount));
+//            updateData();
             connection.close();
         } catch (Exception e) {
             System.err.println("Got an exception!");
@@ -200,7 +222,7 @@ public class MyPurchasesHistory extends javax.swing.JFrame {
             Statement statement = conn.createStatement();
             JOptionPane.showMessageDialog(rootPane, "");
             statement.executeUpdate(query);
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(MyPurchasesHistory.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -215,7 +237,7 @@ public class MyPurchasesHistory extends javax.swing.JFrame {
 
     private void purchasehistoryTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_purchasehistoryTableMouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_purchasehistoryTableMouseClicked
 
     /**

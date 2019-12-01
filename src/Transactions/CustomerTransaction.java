@@ -20,37 +20,37 @@ public class CustomerTransaction {
 
     CustomerOp cOp = new CustomerOp();
 
-    public void purchaseAllergyMed(String genericName, String brandName, String quantity) {
-        if (genericName.equals("")) {
-            JOptionPane.showMessageDialog(null, "no input", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
-            cOp.purchaseMedForCough(brandName, genericName, parseInt(quantity));
-        }
-    }
-    
-    public void purchaseBodyPainMed(String genericName, String brandName, String quantity) {
-        if (genericName.equals("")) {
-            JOptionPane.showMessageDialog(null, "no input", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
-            cOp.purchaseMedForCough(brandName, genericName, parseInt(quantity));
-        }
-    }
-    
-    public void purchaseCoughMed(String genericName, String brandName, String quantity) {
-        if (genericName.equals("")) {
-            JOptionPane.showMessageDialog(null, "no input", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
-            cOp.purchaseMedForCough(brandName, genericName, parseInt(quantity));
-        }
-    }
-    
-    public void purchaseHeadacheMed(String genericName, String brandName, String quantity) {
-        if (genericName.equals("")) {
-            JOptionPane.showMessageDialog(null, "no input", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
-            cOp.purchaseMedForCough(brandName, genericName, parseInt(quantity));
-        }
-    }
+//    public void purchaseAllergyMed(String genericName, String brandName, String quantity) {
+//        if (genericName.equals("")) {
+//            JOptionPane.showMessageDialog(null, "no input", "Error", JOptionPane.ERROR_MESSAGE);
+//        } else {
+//            cOp.purchaseMedForCough(brandName, genericName, parseInt(quantity));
+//        }
+//    }
+//    
+//    public void purchaseBodyPainMed(String genericName, String brandName, String quantity) {
+//        if (genericName.equals("")) {
+//            JOptionPane.showMessageDialog(null, "no input", "Error", JOptionPane.ERROR_MESSAGE);
+//        } else {
+//            cOp.purchaseMedForCough(brandName, genericName, parseInt(quantity));
+//        }
+//    }
+//    
+//    public void purchaseCoughMed(String genericName, String brandName, String quantity) {
+//        if (genericName.equals("")) {
+//            JOptionPane.showMessageDialog(null, "no input", "Error", JOptionPane.ERROR_MESSAGE);
+//        } else {
+//            cOp.purchaseMedForCough(brandName, genericName, parseInt(quantity));
+//        }
+//    }
+//    
+//    public void purchaseHeadacheMed(String genericName, String brandName, String quantity) {
+//        if (genericName.equals("")) {
+//            JOptionPane.showMessageDialog(null, "no input", "Error", JOptionPane.ERROR_MESSAGE);
+//        } else {
+//            cOp.purchaseMedForCough(brandName, genericName, parseInt(quantity));
+//        }
+//    }
 
     public DefaultTableModel tableAllergyMed() {
         Object[][] medForCough = cOp.viewMedicineForAllergy();
